@@ -94,9 +94,9 @@ app.get('/traceroute',  async(req, res)=> {
     }
 })
 
-// app.use('*', (req, res)=> {
-//     res.render('notfound.ejs')
-// })
+app.use('*', (req, res)=> {
+    res.send('Page not found')
+})
 
 const port = process.env.PORT || 3000;
 
