@@ -59,6 +59,8 @@ app.get('/api/traceroute',  async(req, res)=> {
     console.log(req.query.domain)
     let iplist = [];
     // iplist.push(req.ip)
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
 
     if(req.query.domain) {
         try {
