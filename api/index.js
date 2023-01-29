@@ -16,6 +16,12 @@ app.use(express.static("public"));
 // app.use(express.static("code"));
 app.use(express.urlencoded({extended: true}));
 
+app.get('/api', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+    res.send("home");
+});
+
 // const traceroute = async (host) => {
 //     return new Promise((resolve, reject) => {
 //         const hops = [];
@@ -94,9 +100,9 @@ app.get('/traceroute',  async(req, res)=> {
     }
 })
 
-app.use('*', (req, res)=> {
-    res.send('Page not found')
-})
+// app.use('*', (req, res)=> {
+//     res.send('Page not found')
+// })
 
 const port = process.env.PORT || 3000;
 
