@@ -55,7 +55,7 @@ app.get('/api', (req, res) => {
     // });
 // };
 
-app.get('/traceroute',  async(req, res)=> {
+app.get('/api/traceroute',  async(req, res)=> {
     console.log(req.query.domain)
     let iplist = [];
     // iplist.push(req.ip)
